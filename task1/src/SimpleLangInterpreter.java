@@ -1,9 +1,8 @@
-import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 import java.util.*;
 
-public class SimpleLangInterpreter extends AbstractParseTreeVisitor<Integer> implements SimpleLangVisitor<Integer> {
+public class SimpleLangInterpreter extends SimpleLangBaseVisitor<Integer> {
 
     private final Map<String, SimpleLangParser.DecContext> global_funcs = new HashMap<>();
     private final Stack<Map<String, Integer>> frames = new Stack<>();
@@ -92,10 +91,25 @@ public class SimpleLangInterpreter extends AbstractParseTreeVisitor<Integer> imp
         return null;
 
     }
+    @Override public Integer visitUnOpExpr(SimpleLangParser.UnOpExprContext ctx) {
+        Integer value = visit(ctx.exp());
+        int operator = ctx.unop().getStart().getType();
+
+        if (operator == SimpleLangParser.Minus) {
+            return -value;
+        }
+
+        if (operator == SimpleLangParser.Not) {
+            return value == 0 ? 1 : 0;
+        }
+
+        throw new RuntimeException("Shouldn't be here - wrong unary operator.");
+
+    }
 
     @Override public Integer visitBinOpExpr(SimpleLangParser.BinOpExprContext ctx) {
 
-        SimpleLangParser.ExpContext operand1 = ctx.exp(0);
+        SimpleLangParser.ExpContext operand1 = ctx.exp( 0);
         Integer oprnd1 = visit(operand1);
         SimpleLangParser.ExpContext operand2 = ctx.exp(1);
         Integer oprnd2 = visit(operand2);
@@ -132,9 +146,34 @@ public class SimpleLangInterpreter extends AbstractParseTreeVisitor<Integer> imp
                 return oprnd1 * oprnd2;
 
             }
-            default -> {
+            case SimpleLangParser.Greater -> {
+                return oprnd1 > oprnd2 ? 1 : 0;
+            }
+
+            case SimpleLangParser.GreaterEq -> {
+                return oprnd1 >= oprnd2 ? 1 : 0;
+
+            }
+
+            case SimpleLangParser.Division -> {
+                return oprnd1 / oprnd2;
+            }
+
+            case SimpleLangParser.And -> {
+                return (oprnd1 == 1 && oprnd2 == 1) ? 1 : 0;
+            }
+
+            case SimpleLangParser.Or -> {
+                return (oprnd1 == 1 || oprnd2 == 1) ? 1 : 0;
+            }
+            case SimpleLangParser.XOR -> {
+                return (oprnd1 != oprnd2) ? 1 : 0;
+            }
+
+            default-> {
                 throw new RuntimeException("Shouldn't be here - wrong binary operator.");
             }
+
 
         }
 
@@ -203,6 +242,10 @@ public class SimpleLangInterpreter extends AbstractParseTreeVisitor<Integer> imp
         return null;
     }
 
+    @Override public Integer visitSkipExpr(SimpleLangParser.SkipExprContext ctx) {
+        return null;
+    }
+
     @Override public Integer visitIdExpr(SimpleLangParser.IdExprContext ctx)
     {
         return frames.peek().get(ctx.Idfr().getText());
@@ -213,6 +256,9 @@ public class SimpleLangInterpreter extends AbstractParseTreeVisitor<Integer> imp
 
         return Integer.parseInt(ctx.IntLit().getText());
 
+    }
+    @Override public Integer visitBoolExpr(SimpleLangParser.BoolExprContext ctx) {
+        return ctx.BoolLit().getText().equals("true") ? 1 : 0;
     }
     @Override public Integer visitEqBinop(SimpleLangParser.EqBinopContext ctx) {
         throw new RuntimeException("Should not be here!");

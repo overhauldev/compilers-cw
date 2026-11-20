@@ -1,4 +1,4 @@
-// Generated from C:/Users/user/Dropbox/_Teaching/Compilers/coursework/123456/task1/src/SimpleLang.g4 by ANTLR 4.13.1
+// Generated from C:/Users/archi/OneDrive - University of Sussex/Documents/Assignments/compilers/coursework/task1/src/SimpleLang.g4 by ANTLR 4.13.2
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -60,6 +60,13 @@ public interface SimpleLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitBinOpExpr(SimpleLangParser.BinOpExprContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code UnOpExpr}
+	 * labeled alternative in {@link SimpleLangParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitUnOpExpr(SimpleLangParser.UnOpExprContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code InvokeExpr}
 	 * labeled alternative in {@link SimpleLangParser#exp}.
 	 * @param ctx the parse tree
@@ -109,6 +116,27 @@ public interface SimpleLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitIntExpr(SimpleLangParser.IntExprContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code BoolExpr}
+	 * labeled alternative in {@link SimpleLangParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBoolExpr(SimpleLangParser.BoolExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code NewLineExpr}
+	 * labeled alternative in {@link SimpleLangParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNewLineExpr(SimpleLangParser.NewLineExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code SkipExpr}
+	 * labeled alternative in {@link SimpleLangParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitSkipExpr(SimpleLangParser.SkipExprContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code EqBinop}
 	 * labeled alternative in {@link SimpleLangParser#binop}.
 	 * @param ctx the parse tree
@@ -150,4 +178,60 @@ public interface SimpleLangVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitTimesBinop(SimpleLangParser.TimesBinopContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code GreaterBinop}
+	 * labeled alternative in {@link SimpleLangParser#binop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitGreaterBinop(SimpleLangParser.GreaterBinopContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code GreaterEqBinop}
+	 * labeled alternative in {@link SimpleLangParser#binop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitGreaterEqBinop(SimpleLangParser.GreaterEqBinopContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code DivisionBinop}
+	 * labeled alternative in {@link SimpleLangParser#binop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitDivisionBinop(SimpleLangParser.DivisionBinopContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code AndBinop}
+	 * labeled alternative in {@link SimpleLangParser#binop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitAndBinop(SimpleLangParser.AndBinopContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code OrBinop}
+	 * labeled alternative in {@link SimpleLangParser#binop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitOrBinop(SimpleLangParser.OrBinopContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code XORBinop}
+	 * labeled alternative in {@link SimpleLangParser#binop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitXORBinop(SimpleLangParser.XORBinopContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code MinusUnop}
+	 * labeled alternative in {@link SimpleLangParser#unop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitMinusUnop(SimpleLangParser.MinusUnopContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code NotUnop}
+	 * labeled alternative in {@link SimpleLangParser#unop}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNotUnop(SimpleLangParser.NotUnopContext ctx);
 }
