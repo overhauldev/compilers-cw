@@ -40,6 +40,12 @@ public interface SimpleLangVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitBody(SimpleLangParser.BodyContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link SimpleLangParser#localdec}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitLocaldec(SimpleLangParser.LocaldecContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link SimpleLangParser#block}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -136,6 +142,20 @@ public interface SimpleLangVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitSkipExpr(SimpleLangParser.SkipExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code WhileExpr}
+	 * labeled alternative in {@link SimpleLangParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitWhileExpr(SimpleLangParser.WhileExprContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code RepeatExpr}
+	 * labeled alternative in {@link SimpleLangParser#exp}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitRepeatExpr(SimpleLangParser.RepeatExprContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code EqBinop}
 	 * labeled alternative in {@link SimpleLangParser#binop}.

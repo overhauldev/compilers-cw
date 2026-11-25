@@ -9,11 +9,8 @@ public class Task1 {
     public static void main(String[] args) throws IOException {
         // create a CharStream that reads from standard input
         CharStream input = CharStreams.fromString("int main() {\n" +
-                "    print 5;\n" +
-                "    print space;\n" +
-                "    print newline;\n" +
-                "    skip;\n" +
-                "    0\n" +
+                "    int a := 7;\n" +
+                "    a\n" +
                 "}");
         // create a lexer that feeds off of input CharStream
         SimpleLangLexer lexer = new SimpleLangLexer(input);

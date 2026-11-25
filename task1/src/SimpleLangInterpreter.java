@@ -22,12 +22,13 @@ public class SimpleLangInterpreter extends SimpleLangBaseVisitor<Integer> {
 
         Map<String, Integer> newFrame = new HashMap<>();
         for (int i = 0; i < args.length; ++i) {
+            String name = main.vardec.get(i).Idfr().getText();
             if (args[i].equals("true")) {
-                newFrame.put(main.typed_idfr().get(i).Idfr().getText(), 1);
+                newFrame.put(name, 1);
             } else if (args[i].equals("false")) {
-                newFrame.put(main.typed_idfr().get(i).Idfr().getText(), 0);
+                newFrame.put(name, 0);
             } else {
-                newFrame.put(main.typed_idfr().get(i).Idfr().getText(), Integer.parseInt(args[i]));
+                newFrame.put(name, Integer.parseInt(args[i]));
             }
         }
 
@@ -63,7 +64,11 @@ public class SimpleLangInterpreter extends SimpleLangBaseVisitor<Integer> {
     }
 
     @Override public Integer visitBody(SimpleLangParser.BodyContext ctx) {
-
+        for (SimpleLangParser.LocaldecContext dec : ctx.localdecs) { // process declarations
+            String name = dec.typed_idfr().Idfr().getText(); // get name
+            Integer initialValue = visit(dec.exp()); // evaluate the value
+            frames.peek().put(name, initialValue);  // add it to frame
+        }
         Integer returnValue = null;
         for (int i = 0; i < ctx.ene.size(); ++i) {
             SimpleLangParser.ExpContext exp = ctx.ene.get(i);
@@ -180,14 +185,20 @@ public class SimpleLangInterpreter extends SimpleLangBaseVisitor<Integer> {
     }
     @Override public Integer visitInvokeExpr(SimpleLangParser.InvokeExprContext ctx)
     {
+        // allow more params.
+        // loop through and push to the stack
 
         SimpleLangParser.DecContext dec = global_funcs.get(ctx.Idfr().getText());
-        SimpleLangParser.Typed_idfrContext param = dec.vardec.get(0);
-        Map<String, Integer> newFrame = new HashMap<>();
+//        System.out.println(dec);
+        int paramCount = dec.vardec.size(); // get param list size
+//        System.out.println(param);
+        Map<String, Integer> newFrame = new HashMap<>(); // initialise frame
+        for (int i = 0; i < paramCount; i++) { // loop through param list
+            SimpleLangParser.Typed_idfrContext param = dec.vardec.get(i);
+            SimpleLangParser.ExpContext exp = ctx.args.get(i);
+            newFrame.put(param.Idfr().getText(), visit(exp));
 
-        SimpleLangParser.ExpContext exp = ctx.args.get(0);
-        newFrame.put(param.Idfr().getText(), visit(exp));
-
+        }
         frames.push(newFrame);
         return visit(dec);
 
@@ -237,7 +248,25 @@ public class SimpleLangInterpreter extends SimpleLangBaseVisitor<Integer> {
         return null;
 
     }
+    @Override public Integer visitWhileExpr(SimpleLangParser.WhileExprContext ctx) {
+        SimpleLangParser.ExpContext condition = ctx.exp();
+        SimpleLangParser.BlockContext block = ctx.block();
+        while(visit(condition) != 0) { // while condition is false
+            visit(block); // do block
+        }
+        return null;
+    }
 
+    @Override public Integer visitRepeatExpr(SimpleLangParser.RepeatExprContext ctx) {
+        SimpleLangParser.ExpContext condition = ctx.exp();
+        SimpleLangParser.BlockContext block = ctx.block();
+        do {
+            visit(block);
+        }
+        while (visit(condition) == 0);
+
+        return null;
+    }
     @Override public Integer visitSpaceExpr(SimpleLangParser.SpaceExprContext ctx) {
         return null;
     }
@@ -245,6 +274,7 @@ public class SimpleLangInterpreter extends SimpleLangBaseVisitor<Integer> {
     @Override public Integer visitSkipExpr(SimpleLangParser.SkipExprContext ctx) {
         return null;
     }
+
 
     @Override public Integer visitIdExpr(SimpleLangParser.IdExprContext ctx)
     {

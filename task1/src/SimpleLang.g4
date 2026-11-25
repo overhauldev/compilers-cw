@@ -3,7 +3,7 @@ grammar SimpleLang;
 prog : dec+ EOF;
 
 dec
-    : typed_idfr LParen (vardec+=typed_idfr)? RParen body
+    : typed_idfr LParen (vardec+=typed_idfr (Comma vardec+=typed_idfr)*)? RParen body // * allows zero or more, ? is zero or one. So what ive done here is allow one or more parameters and added a ? at the end to make the whole param list optional
 ;
 
 typed_idfr
@@ -15,9 +15,12 @@ type
 ;
 
 body
-    : LBrace ene+=exp (Semicolon ene+=exp)* RBrace
-;
+    : LBrace localdecs+=localdec* ene+=exp (Semicolon ene+=exp)* RBrace
+    ;
 
+localdec
+    : typed_idfr Assign exp Semicolon // A declaration like: int a := 0;
+    ;
 block
     : LBrace ene+=exp (Semicolon ene+=exp)* RBrace
 ;
@@ -36,6 +39,8 @@ exp
     | BoolLit                                               #BoolExpr
     | NewLine                                               #NewLineExpr
     | Skip                                                  #SkipExpr
+    | While exp Do block                                    #WhileExpr
+    | Repeat block Until exp                                #RepeatExpr
 ;
 
 binop
@@ -90,6 +95,10 @@ If : 'if' ;
 Then : 'then' ;
 Else : 'else' ;
 Skip : 'skip' ;
+While : 'while';
+Do : 'do';
+Repeat : 'repeat';
+Until : 'until';
 
 IntType : 'int' ;
 BoolType : 'bool' ;
