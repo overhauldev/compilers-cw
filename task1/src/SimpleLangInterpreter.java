@@ -251,7 +251,7 @@ public class SimpleLangInterpreter extends SimpleLangBaseVisitor<Integer> {
     @Override public Integer visitWhileExpr(SimpleLangParser.WhileExprContext ctx) {
         SimpleLangParser.ExpContext condition = ctx.exp();
         SimpleLangParser.BlockContext block = ctx.block();
-        while(visit(condition) != 0) { // while condition is false
+        while(visit(condition) != 0) { // while condition is non zero
             visit(block); // do block
         }
         return null;

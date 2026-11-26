@@ -1,0 +1,448 @@
+Trying testcase 00001.simp
+Trying testcase 00002.simp
+Trying testcase 00003.simp
+Incorrect output for 00002.simp
+Answers:
+
+
+NORMAL_TERMINATION
+0
+Output:
+
+{x=1, y=2, z=3}
+
+NORMAL_TERMINATION
+0
+
+Incorrect output for 00003.simp
+Answers:
+
+
+NORMAL_TERMINATION
+55
+Output:
+
+{n=10}
+{n=9}
+{n=8}
+{n=7}
+{n=6}
+{n=5}
+{n=4}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=2}
+{n=1}
+{n=0}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=4}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=2}
+{n=1}
+{n=0}
+{n=5}
+{n=4}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=2}
+{n=1}
+{n=0}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=6}
+Trying testcase 00004.simp
+{n=5}
+{n=4}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=2}
+{n=1}
+{n=0}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=4}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=2}
+{n=1}
+{n=0}
+{n=7}
+{n=6}
+{n=5}
+{n=4}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=2}
+{n=1}
+{n=0}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=4}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=2}
+{n=1}
+{n=0}
+{n=5}
+{n=4}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=2}
+{n=1}
+{n=0}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=8}
+{n=7}
+{n=6}
+{n=5}
+{n=4}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=2}
+{n=1}
+{n=0}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=4}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=2}
+{n=1}
+{n=0}
+{n=5}
+{n=4}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=2}
+{n=1}
+{n=0}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=6}
+{n=5}
+{n=4}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=2}
+{n=1}
+{n=0}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=4}
+{n=3}
+{n=2}
+{n=1}
+{n=0}
+{n=1}
+{n=2}
+{n=1}
+{n=0}
+
+NORMAL_TERMINATION
+55
+
+line 2:13 mismatched input '<=' expecting {',', ')'}
+line 4:20 extraneous input ';' expecting {<EOF>, 'int', 'bool', 'unit'}
+Exception when feeding  into 00004.simp
+Incorrect output for 00004.simp
+Answers:
+
+8
+NORMAL_TERMINATION
+1337
+Output:
+
+
+Trying testcase 00005.simp
+line 4:4 extraneous input 'int' expecting {'(', '{', '-', '~', 'print', 'space', 'newline', 'if', 'skip', BoolLit, IntLit, Idfr}
+line 5:4 extraneous input 'int' expecting {'(', '{', '-', '~', 'print', 'space', 'newline', 'if', 'skip', BoolLit, IntLit, Idfr}
+line 6:13 mismatched input '<=' expecting {',', ')'}
+line 10:5 extraneous input ';' expecting {<EOF>, 'int', 'bool', 'unit'}
+Exception when feeding 0 into 00005.simp
+Exception when feeding 1 into 00005.simp
+Exception when feeding 100 into 00005.simp
+Incorrect output for 00005.simp
+Answers:
+
+
+NORMAL_TERMINATION
+0
+
+NORMAL_TERMINATION
+1
+
+NORMAL_TERMINATION
+5050
+Output:
+
+
+Trying testcase 00006.simp
+line 2:4 extraneous input 'int' expecting {'(', '{', '-', '~', 'print', 'space', 'newline', 'if', 'skip', BoolLit, IntLit, Idfr}
+line 3:13 mismatched input '<' expecting {',', ')'}
+line 6:5 extraneous input ';' expecting {<EOF>, 'int', 'bool', 'unit'}
+line 11:4 extraneous input 'int' expecting {'(', '{', '-', '~', 'print', 'space', 'newline', 'if', 'skip', BoolLit, IntLit, Idfr}
+line 12:13 mismatched input '<' expecting {',', ')'}
+line 15:5 extraneous input ';' expecting {<EOF>, 'int', 'bool', 'unit'}
+Exception when feeding 5 into 00006.simp
+Exception when feeding 10 into 00006.simp
+Exception when feeding 20 into 00006.simp
+Incorrect output for 00006.simp
+Answers:
+
+
+1
+11
+111
+1111
+
+NORMAL_TERMINATION
+0
+
+1
+11
+111
+1111
+11111
+111111
+1111111
+11111111
+111111111
+
+NORMAL_TERMINATION
+0
+
+1
+11
+111
+1111
+11111
+111111
+1111111
+11111111
+111111111
+1111111111
+11111111111
+111111111111
+1111111111111
+11111111111111
+111111111111111
+1111111111111111
+11111111111111111
+111111111111111111
+1111111111111111111
+
+NORMAL_TERMINATION
+0
+Output:
+
+
+Trying testcase 008.simp
+line 3:0 extraneous input 'int' expecting {'(', '{', '-', '~', 'print', 'space', 'newline', 'if', 'skip', BoolLit, IntLit, Idfr}
+line 4:0 extraneous input 'bool' expecting {'(', '{', '-', '~', 'print', 'space', 'newline', 'if', 'skip', BoolLit, IntLit, Idfr}
+Exception when feeding 1 false into 008.simp
+Exception when feeding 2 false into 008.simp
+Exception when feeding 3 false into 008.simp
+Exception when feeding 1 true into 008.simp
+Exception when feeding 2 true into 008.simp
+Exception when feeding 3 true into 008.simp
+Incorrect output for 008.simp
+Answers:
+
+
+NORMAL_TERMINATION
+30
+
+NORMAL_TERMINATION
+20
+
+NORMAL_TERMINATION
+30
+
+NORMAL_TERMINATION
+-29
+
+NORMAL_TERMINATION
+-28
+
+NORMAL_TERMINATION
+-27
+Output:
+
+
+Trying testcase 022.simp
+line 3:0 extraneous input 'int' expecting {'(', '{', '-', '~', 'print', 'space', 'newline', 'if', 'skip', BoolLit, IntLit, Idfr}
+line 4:0 extraneous input 'int' expecting {'(', '{', '-', '~', 'print', 'space', 'newline', 'if', 'skip', BoolLit, IntLit, Idfr}
+line 5:0 extraneous input 'bool' expecting {'(', '{', '-', '~', 'print', 'space', 'newline', 'if', 'skip', BoolLit, IntLit, Idfr}
+line 7:16 mismatched input '&' expecting {',', ')'}
+line 13:3 extraneous input ';' expecting {<EOF>, 'int', 'bool', 'unit'}
+Exception when feeding 9097 into 022.simp
+Exception when feeding 3154385 into 022.simp
+Exception when feeding 13568541 into 022.simp
+Exception when feeding 45904379 into 022.simp
+Incorrect output for 022.simp
+Answers:
+
+11 
+827 
+
+NORMAL_TERMINATION
+0
+5 
+13 13 
+3733 
+
+NORMAL_TERMINATION
+0
+3 
+7 7 
+241 
+383 
+
+NORMAL_TERMINATION
+0
+41 
+911 
+1229 
+
+NORMAL_TERMINATION
+0
+Output:
+
+
+Trying testcase 023.simp
+line 7:15 mismatched input '>' expecting {',', ')'}
+line 10:3 extraneous input ';' expecting {<EOF>, 'int', 'bool', 'unit'}
+Exception when feeding 0 2 3 into 023.simp
+Exception when feeding 0 3 4 into 023.simp
+Exception when feeding 0 5 2 into 023.simp
+Exception when feeding 0 7 2 into 023.simp
+Incorrect output for 023.simp
+Answers:
+
+
+NORMAL_TERMINATION
+8
+
+NORMAL_TERMINATION
+81
+
+NORMAL_TERMINATION
+25
+
+NORMAL_TERMINATION
+49
+Output:
+
+
+Trying testcase 024.simp
+Exception when feeding 5 into 024.simp
+Exception when feeding 10 into 024.simp
+Exception when feeding 15 into 024.simp
+Incorrect output for 024.simp
+Answers:
+
+
+NORMAL_TERMINATION
+15
+
+NORMAL_TERMINATION
+55
+
+NORMAL_TERMINATION
+120
+Output:
+
+
+Trying testcase 025.simp
+line 8:9 extraneous input '{' expecting {';', '}'}
+line 8:54 extraneous input 'until' expecting {<EOF>, 'int', 'bool', 'unit'}
+Incorrect output for 025.simp
+Answers:
+
+
+NORMAL_TERMINATION
+5
+
+NORMAL_TERMINATION
+55
+
+NORMAL_TERMINATION
+385
+Output:
+
+{nn=4, tmp=null}
+
+NORMAL_TERMINATION
+null
+{nn=9, tmp=null}
+
+NORMAL_TERMINATION
+null
+{nn=23, tmp=null}
+
+NORMAL_TERMINATION
+null
+
